@@ -4,8 +4,36 @@ import palette1 from '../images/palette1.png';
 import palette2 from '../images/palette2.png';
 import palette3 from '../images/palette3.png';
 import logoAdalab from '../images/logo-adalab.png';
+import {useState} from 'react';
 
 function App() {
+const [collapsable1, setCollapsable1] = useState ('');
+const [collapsable2, setCollapsable2] = useState ('');
+const [collapsable3, setCollapsable3] = useState ('');
+//función para collapsable 1
+const handleCollapsable1 = () =>{
+if (collapsable1 === ''){
+setCollapsable1('hidden');
+}else if(collapsable1 === 'hidden'){
+  setCollapsable1('')
+}
+};
+//función para collapsable 2
+const handleCollapsable2 = () =>{
+  if (collapsable2 === ''){
+  setCollapsable2('hidden');
+  }else if(collapsable2 === 'hidden'){
+    setCollapsable2('')
+  }
+  };
+  // función para collapsable 3
+  const handleCollapsable3 = () =>{
+    if (collapsable3 === ''){
+    setCollapsable3('hidden');
+    }else if(collapsable3 === 'hidden'){
+      setCollapsable3('')
+    }
+    };
   return (
     <div>
       <main className='main-card'>
@@ -86,12 +114,12 @@ function App() {
                     <i className='far fa-object-ungroup dropdown__ungroup'></i>
                     <h2 className='dropdown__title'>diseña</h2>
                   </div>
-                  <div className='js-arrow'>
+                  <div className='js-arrow'onClick={handleCollapsable1} >
                     <i className='js-chevron fas fa-chevron-up'></i>
                   </div>
                 </div>
 
-                <div className='design-form js-collapsable'>
+                <div className={`design-form js-collapsable ${collapsable1}`}>
                   <h3 className='design-form__description'>colores</h3>
                   <form
                     action='#'
@@ -105,7 +133,7 @@ function App() {
                         value='1'
                         name='palette'
                         className='design-form__palette--radio'
-                        checked
+                        // checked
                       />
                       <img
                         src={palette1}
@@ -148,17 +176,16 @@ function App() {
                 <div className='fill wrapper container2'>
                   <div className='fill__dropdown'>
                     <div className='fill__dropdown--icon'>
-                      {' '}
                       <i className='far fa-keyboard'></i>
                       <h2 className='fill__dropdown--title'> RELLENA</h2>
                     </div>
-                    <div className=' fill__dropdown--arrow .js-arrow2'>
-                      {' '}
+                    <div className=' fill__dropdown--arrow .js-arrow2'onClick={handleCollapsable2}>
+                      
                       <i className='fas fa-chevron-down js-chevron2'></i>
                     </div>
                   </div>
-                  <form
-                    className='fill__form js-collapsable2 hidden'
+                  <form 
+                    className={`fill__form js-collapsable2 hidden ${collapsable2}`}
                     action=''
                     method='post'
                   >
@@ -264,12 +291,13 @@ function App() {
                     <i className='far fa-share-alt dropdown__ungroup'></i>
                     <h2 className='dropdown__title'>comparte</h2>
                   </div>
-                  <div>
+                  {/* tercera flecha */}
+                  <div onClick={handleCollapsable3}>
                     <i className='js-chevron3 fas fa-chevron-down'></i>
                   </div>
                 </div>
 
-                <section className='create js-collapsable3 hidden'>
+                <section className={`create js-collapsable3 hidden ${collapsable3}`}>
                   <button className='create__btn js-createBtn' name='create'>
                     <i className='far fa-address-card create__address'></i>crear
                     tarjeta
