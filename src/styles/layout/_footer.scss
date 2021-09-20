@@ -1,0 +1,42 @@
+.footer {
+  width: 100%;
+  height: 110px;
+	position:static;
+	bottom: 0;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+		height: 60px;
+  }
+}
+.info-footer {
+  width: 198px;
+  height: 20px;
+  opacity: 50%;
+  font-size: 14px;
+  font-family: $bodyF;
+  color: $brownishGrey;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 18px;
+  @include tablet {
+    margin-left: 41px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+.logo-adalab {
+  width: 103px;
+  height: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  @include tablet {
+    margin-right: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}

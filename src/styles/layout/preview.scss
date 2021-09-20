@@ -1,0 +1,146 @@
+.preview {
+  background-color: #bfcdd0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+	padding-top: 50px;
+  &--button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75px;
+    height: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: #bfcdd0;
+    color: #54585a;
+    border: 1px solid white;
+    border-radius: 15px;
+  }
+  &--card {
+    height: 329px;
+    width: 240px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 10px #666;
+    &__info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      margin-top: 23px;
+    }
+  }
+  &--edge {
+    background-color: #438792;
+    height: 42px;
+    width: 5px;
+  }
+}
+
+.name {
+  color: #114e4e;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+.proffesion {
+  color: #54585a;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-bottom: 12px;
+
+  &--border {
+		text-decoration: none;
+		color: #114e4e;
+    height: 32px;
+    margin-right: 10px;
+    width: 32px;
+    border: solid #a2deaf;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+		
+  }
+}
+.info {
+  margin-left: 10px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.profile__image {
+  width: 240px;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #ccc;
+}
+
+.palette1 {
+
+	.preview--edge {
+		
+	background-color: #438792;
+	}
+	.js_namePreview {
+		color: #114e4e;
+	}
+	a {
+		border-color: #a2deaf;
+		color: #114e4e;
+
+	}
+}
+
+
+.palette2 {
+
+	.preview--edge {
+		
+	background-color: #bd1010;
+	}
+	.js_namePreview {
+		color: #420101;
+	}
+	a {
+		border-color: #e95626;
+		color: #420101;
+
+	}
+}
+
+.palette3 {
+
+	.preview--edge {
+		background-color: #eab052;
+	}
+	.js_namePreview {
+		color: #3e5b65;
+	}
+	a {
+		border-color: #a0c0cf;
+		color: #3e5b65;
+
+	}
+}
+
+

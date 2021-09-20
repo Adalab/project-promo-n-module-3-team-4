@@ -1,0 +1,89 @@
+.fill {
+  &__dropdown {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    padding-top: 10px;
+	padding-bottom: 10px;
+
+    &--icon {
+      color: $orange;
+      display: flex;
+    }
+    &--title {
+      font-family: $bodyF;
+      font-weight: 600;
+      color: $gunMetal;
+      margin-left: 10px;
+    }
+    &--arrow {
+      color: $gunMetal;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__addPic {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &--item {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    &--title {
+      padding-bottom: 7px;
+      font-family: $bodyF;
+      font-size: 14px;
+      color: $darkGreen;
+    }
+    &--button {
+      width: 140px;
+      height: 30px;
+      font-family: $bodyF;
+      font-size: 14px;
+      color: white;
+      background-color: $orange;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &--pic {
+      border: solid 1px $hospitalGreen;
+      width: 30px;
+      height: 30px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.style_label {
+  margin-bottom: 7px;
+  font-family: $bodyF;
+  font-size: 14px;
+  color: $darkGreen;
+}
+
+.style_input {
+  height: 30px;
+  margin-bottom: 20px;
+  border: solid 1px $hospitalGreen;
+  padding-left: 20px;
+  font-family: $bodyF;
+}
+
+.profile__preview {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #ccc;
+}

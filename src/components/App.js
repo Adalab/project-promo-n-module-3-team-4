@@ -1,4 +1,9 @@
-import '../styles/App.scss';
+import '../styles/main.scss';
+import logo from '../images/logo-awesome-profile-cards.svg';
+import palette1 from '../images/palette1.png';
+import palette2 from '../images/palette2.png';
+import palette3 from '../images/palette3.png';
+import logoAdalab from '../images/logo-adalab.png';
 
 function App() {
   return (
@@ -8,7 +13,7 @@ function App() {
           <a rel='noreferrer' href='index.html'>
             <img
               className='logo-awesome-header'
-              src='./assets/images/logo-awesome-profile-cards.svg'
+              src={logo}
               alt=''
             />
           </a>
@@ -103,7 +108,7 @@ function App() {
                         checked
                       />
                       <img
-                        src='./assets/images/palette1.png'
+                        src={palette1}
                         className='design-form__palette--image'
                         alt='colour palette 1'
                       />
@@ -117,7 +122,7 @@ function App() {
                         className='design-form__palette--radio'
                       />
                       <img
-                        src='./assets/images/palette2.png'
+                        src={palette2}
                         className='design-form__palette--image'
                         alt='colour palette 2'
                       />
@@ -131,7 +136,7 @@ function App() {
                         className='design-form__palette--radio'
                       />
                       <img
-                        src='./assets/images/palette3.png'
+                        src={palette3}
                         className='design-form__palette--image'
                         alt='colour palette 3'
                       />
@@ -297,7 +302,7 @@ function App() {
         <small className='info-footer'>awesom profile-cards @2018</small>
         <img
           className='logo-adalab'
-          src='./assets/images/logo-adalab.png'
+          src={logoAdalab}
           alt='logo-adalab'
         />
       </footer>
