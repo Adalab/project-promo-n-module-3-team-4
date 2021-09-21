@@ -8,8 +8,8 @@ import {useState} from 'react';
 
 function App() {
 const [collapsable1, setCollapsable1] = useState ('');
-const [collapsable2, setCollapsable2] = useState ('');
-const [collapsable3, setCollapsable3] = useState ('');
+const [collapsable2, setCollapsable2] = useState ('hidden');
+const [collapsable3, setCollapsable3] = useState ('hidden');
 //función para collapsable 1
 const handleCollapsable1 = () =>{
 if (collapsable1 === ''){
@@ -185,7 +185,7 @@ const handleCollapsable2 = () =>{
                     </div>
                   </div>
                   <form 
-                    className={`fill__form js-collapsable2 hidden ${collapsable2}`}
+                    className={`fill__form js-collapsable2 ${collapsable2}`}
                     action=''
                     method='post'
                   >
@@ -297,7 +297,7 @@ const handleCollapsable2 = () =>{
                   </div>
                 </div>
 
-                <section className={`create js-collapsable3 hidden ${collapsable3}`}>
+                <section className={`create js-collapsable3  ${collapsable3}`}>
                   <button className='create__btn js-createBtn' name='create'>
                     <i className='far fa-address-card create__address'></i>crear
                     tarjeta
