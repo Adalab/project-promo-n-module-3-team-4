@@ -36,7 +36,7 @@ function App() {
   };
 
   //flechas
-  const [arrow1, setArrow1] = useState('upDown');
+  const [arrow1, setArrow1] = useState('');
   const [arrow2, setArrow2] = useState('');
   const [arrow3, setArrow3] = useState('');
 
@@ -141,11 +141,8 @@ function App() {
                     <h2 className='dropdown__title'>diseña</h2>
                   </div>
                   {/* 1a flecha  */}
-                  <div className='js-arrow'>
-                    <i
-                      className='js-chevron fas fa-chevron-up'
-                      onClick={handleArrow1}
-                    ></i>
+                  <div className='js-arrow' onClick={handleArrow1}>
+                    <i className={`js-chevron fas fa-chevron-up ${arrow1}`}></i>
                   </div>
                 </div>
 
@@ -210,10 +207,12 @@ function App() {
                       <h2 className='fill__dropdown--title'> RELLENA</h2>
                     </div>
                     {/* 2a flecha */}
-                    <div className=' fill__dropdown--arrow .js-arrow2'>
+                    <div
+                      className=' fill__dropdown--arrow .js-arrow2'
+                      onClick={handleArrow2}
+                    >
                       <i
-                        className='fas fa-chevron-down js-chevron2'
-                        onClick={handleArrow2}
+                        className={`fas fa-chevron-down js-chevron2 ${arrow2}`}
                       ></i>
                     </div>
                   </div>
@@ -325,10 +324,9 @@ function App() {
                     <h2 className='dropdown__title'>comparte</h2>
                   </div>
                   {/* tercera flecha */}
-                  <div>
+                  <div onClick={handleArrow3}>
                     <i
-                      className='js-chevron3 fas fa-chevron-down'
-                      onClick={handleArrow3}
+                      className={`js-chevron3 fas fa-chevron-down ${arrow3}`}
                     ></i>
                   </div>
                 </div>
