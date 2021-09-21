@@ -34,6 +34,26 @@ const handleCollapsable2 = () =>{
       setCollapsable3('')
     }
     };
+    ///////////FORMULARIO
+    const [data, setData] = useState(
+      {
+        name: '',
+        job: ''
+      }
+    );
+const handleInput = (ev) => {
+  const input = ev.currentTarget.name;
+
+  if(input === 'name'){
+    setData (ev.currentTarget.value)
+
+  }else if ( input === 'job'){
+    setData (ev.currentTarget.value)
+  }else{
+    setData (ev.currentTarget.value)
+  } 
+}
+
   return (
     <div>
       <main className='main-card'>
@@ -198,6 +218,8 @@ const handleCollapsable2 = () =>{
                       id='name'
                       type='text'
                       name='name'
+                      value={data.name}
+                      onChange={handleInput}
                       required
                     />
 
