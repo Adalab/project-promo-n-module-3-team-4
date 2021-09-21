@@ -109,12 +109,12 @@ const handleCollapsable2 = () =>{
           <section className='mediaqueries-form'>
             <nav className='js-form'>
               <section className='design wrapper container'>
-                <div className='dropdown'>
+                <div className='dropdown' onClick={handleCollapsable1}>
                   <div className='dropdown__header'>
                     <i className='far fa-object-ungroup dropdown__ungroup'></i>
                     <h2 className='dropdown__title'>diseña</h2>
                   </div>
-                  <div className='js-arrow'onClick={handleCollapsable1} >
+                  <div className='js-arrow' >
                     <i className='js-chevron fas fa-chevron-up'></i>
                   </div>
                 </div>
@@ -174,12 +174,12 @@ const handleCollapsable2 = () =>{
               </section>
               <section>
                 <div className='fill wrapper container2'>
-                  <div className='fill__dropdown'>
+                  <div className='fill__dropdown' onClick={handleCollapsable2}>
                     <div className='fill__dropdown--icon'>
                       <i className='far fa-keyboard'></i>
                       <h2 className='fill__dropdown--title'> RELLENA</h2>
                     </div>
-                    <div className=' fill__dropdown--arrow .js-arrow2'onClick={handleCollapsable2}>
+                    <div className=' fill__dropdown--arrow .js-arrow2'>
                       
                       <i className='fas fa-chevron-down js-chevron2'></i>
                     </div>
@@ -286,13 +286,13 @@ const handleCollapsable2 = () =>{
                 </div>
               </section>
               <section className='share wrapper'>
-                <div className='dropdown'>
+                <div className='dropdown' onClick={handleCollapsable3}>
                   <div className='dropdown__header'>
                     <i className='far fa-share-alt dropdown__ungroup'></i>
                     <h2 className='dropdown__title'>comparte</h2>
                   </div>
                   {/* tercera flecha */}
-                  <div onClick={handleCollapsable3}>
+                  <div >
                     <i className='js-chevron3 fas fa-chevron-down'></i>
                   </div>
                 </div>
