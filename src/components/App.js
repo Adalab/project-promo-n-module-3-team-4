@@ -4,9 +4,10 @@ import palette1 from '../images/palette1.png';
 import palette2 from '../images/palette2.png';
 import palette3 from '../images/palette3.png';
 import logoAdalab from '../images/logo-adalab.png';
-import {useState} from 'react';
+import { useState } from 'react';
 
 function App() {
+<<<<<<< HEAD
 const [collapsable1, setCollapsable1] = useState ('');
 const [collapsable2, setCollapsable2] = useState ('hidden');
 const [collapsable3, setCollapsable3] = useState ('hidden');
@@ -25,14 +26,35 @@ const handleCollapsable2 = () =>{
   }else if(collapsable2 === 'hidden'){
     setCollapsable2('')
   }
+=======
+  const [collapsable1, setCollapsable1] = useState('');
+  const [collapsable2, setCollapsable2] = useState('hidden');
+  const [collapsable3, setCollapsable3] = useState('hidden');
+  //función para collapsable 1
+  const handleCollapsable1 = () => {
+    if (collapsable1 === '') {
+      setCollapsable1('hidden');
+    } else if (collapsable1 === 'hidden') {
+      setCollapsable1('');
+    }
+  };
+  //función para collapsable 2
+  const handleCollapsable2 = () => {
+    if (collapsable2 === '') {
+      setCollapsable2('hidden');
+    } else if (collapsable2 === 'hidden') {
+      setCollapsable2('');
+    }
+>>>>>>> daniela
   };
   // función para collapsable 3
-  const handleCollapsable3 = () =>{
-    if (collapsable3 === ''){
-    setCollapsable3('hidden');
-    }else if(collapsable3 === 'hidden'){
-      setCollapsable3('')
+  const handleCollapsable3 = () => {
+    if (collapsable3 === '') {
+      setCollapsable3('hidden');
+    } else if (collapsable3 === 'hidden') {
+      setCollapsable3('');
     }
+<<<<<<< HEAD
     };
     ///////////FORMULARIO
     const [data, setData] = useState(
@@ -53,17 +75,45 @@ const handleInput = (ev) => {
     setData (ev.currentTarget.value)
   } 
 }
+=======
+  };
+
+  //flechas
+  const [arrow1, setArrow1] = useState('upDown');
+  const [arrow2, setArrow2] = useState('');
+  const [arrow3, setArrow3] = useState('');
+
+  const handleArrow1 = () => {
+    if (arrow1 === '') {
+      setArrow1('upDown');
+    } else if (arrow1 === 'upDown') {
+      setArrow1('');
+    }
+  };
+
+  const handleArrow2 = () => {
+    if (arrow2 === '') {
+      setArrow2('upDown');
+    } else if (arrow2 === 'upDown') {
+      setArrow2('');
+    }
+  };
+
+  const handleArrow3 = () => {
+    if (arrow3 === '') {
+      setArrow3('upDown');
+    } else if (arrow3 === 'upDown') {
+      setArrow3('');
+    }
+  };
+>>>>>>> daniela
 
   return (
     <div>
       <main className='main-card'>
         <header className='header'>
           <a rel='noreferrer' href='index.html'>
-            <img
-              className='logo-awesome-header'
-              src={logo}
-              alt=''
-            />
+            <img className='logo-awesome-header' src={logo} alt='' />
           </a>
         </header>
         <div className='mediaqueries'>
@@ -134,8 +184,16 @@ const handleInput = (ev) => {
                     <i className='far fa-object-ungroup dropdown__ungroup'></i>
                     <h2 className='dropdown__title'>diseña</h2>
                   </div>
+<<<<<<< HEAD
                   <div className='js-arrow' >
                     <i className='js-chevron fas fa-chevron-up'></i>
+=======
+                  {/* 1a flecha  */}
+                  <div className='js-arrow' onClick={handleArrow1}>
+                    <i
+                      className={`js-chevron fas fa-chevron-down ${arrow1}`}
+                    ></i>
+>>>>>>> daniela
                   </div>
                 </div>
 
@@ -199,12 +257,26 @@ const handleInput = (ev) => {
                       <i className='far fa-keyboard'></i>
                       <h2 className='fill__dropdown--title'> RELLENA</h2>
                     </div>
+<<<<<<< HEAD
                     <div className=' fill__dropdown--arrow .js-arrow2'>
                       
                       <i className='fas fa-chevron-down js-chevron2'></i>
                     </div>
                   </div>
                   <form 
+=======
+                    {/* 2a flecha */}
+                    <div
+                      className=' fill__dropdown--arrow .js-arrow2'
+                      onClick={handleArrow2}
+                    >
+                      <i
+                        className={`fas fa-chevron-down js-chevron2 ${arrow2}`}
+                      ></i>
+                    </div>
+                  </div>
+                  <form
+>>>>>>> daniela
                     className={`fill__form js-collapsable2 ${collapsable2}`}
                     action=''
                     method='post'
@@ -314,12 +386,23 @@ const handleInput = (ev) => {
                     <h2 className='dropdown__title'>comparte</h2>
                   </div>
                   {/* tercera flecha */}
+<<<<<<< HEAD
                   <div >
                     <i className='js-chevron3 fas fa-chevron-down'></i>
                   </div>
                 </div>
 
                 <section className={`create js-collapsable3  ${collapsable3}`}>
+=======
+                  <div onClick={handleArrow3}>
+                    <i
+                      className={`js-chevron3 fas fa-chevron-down ${arrow3}`}
+                    ></i>
+                  </div>
+                </div>
+
+                <section className={`create js-collapsable3 ${collapsable3}`}>
+>>>>>>> daniela
                   <button className='create__btn js-createBtn' name='create'>
                     <i className='far fa-address-card create__address'></i>crear
                     tarjeta
@@ -350,11 +433,7 @@ const handleInput = (ev) => {
 
       <footer className='footer'>
         <small className='info-footer'>awesom profile-cards @2018</small>
-        <img
-          className='logo-adalab'
-          src={logoAdalab}
-          alt='logo-adalab'
-        />
+        <img className='logo-adalab' src={logoAdalab} alt='logo-adalab' />
       </footer>
     </div>
   );
