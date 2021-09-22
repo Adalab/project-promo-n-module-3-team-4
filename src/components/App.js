@@ -36,7 +36,7 @@ function App() {
   };
 
   //flechas
-  const [arrow1, setArrow1] = useState('');
+  const [arrow1, setArrow1] = useState('upDown');
   const [arrow2, setArrow2] = useState('');
   const [arrow3, setArrow3] = useState('');
 
@@ -142,7 +142,9 @@ function App() {
                   </div>
                   {/* 1a flecha  */}
                   <div className='js-arrow' onClick={handleArrow1}>
-                    <i className={`js-chevron fas fa-chevron-up ${arrow1}`}></i>
+                    <i
+                      className={`js-chevron fas fa-chevron-down ${arrow1}`}
+                    ></i>
                   </div>
                 </div>
 
