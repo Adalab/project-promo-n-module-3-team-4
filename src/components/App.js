@@ -64,6 +64,69 @@ function App() {
     }
   };
 
+  //FORMULARIO
+  const [data, setData] = useState({
+    name: '',
+    job: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
+  });
+
+  console.log(data);
+
+  const handleInput = (ev) => {
+    const dataInput = ev.currentTarget.name;
+    if (dataInput === 'name') {
+      setData({
+        ...data,
+        name: ev.currentTarget.value,
+      });
+    } else if (dataInput === 'job') {
+      setData({
+        ...data,
+        job: ev.currentTarget.value,
+      });
+    } else if (dataInput === 'email') {
+      setData({
+        ...data,
+        email: ev.currentTarget.value,
+      });
+    } else if (dataInput === 'phone') {
+      setData({
+        ...data,
+        phone: ev.currentTarget.value,
+      });
+    } else if (dataInput === 'linkedin') {
+      setData({
+        ...data,
+        linkedin: ev.currentTarget.value,
+      });
+    } else if (dataInput === 'github') {
+      setData({
+        ...data,
+        github: ev.currentTarget.value,
+      });
+    }
+  };
+
+  let renderData;
+  if (data.name === '') {
+    renderData = data.name;
+  }
+  console.log('pasa x aqui');
+  let renderDataJob;
+  if (data.job === '') {
+    renderDataJob = data.job;
+    //renderDataJob = 'Unicornio';
+  }
+
+  // const renderData = () => {
+  //   return data.map((data, index) => {
+  //     if (data.id === )
+  //   })
+  // }
   return (
     <div>
       <main className='main-card'>
@@ -82,9 +145,9 @@ function App() {
                 <div className='preview--card__info'>
                   <div className='preview--edge'></div>
                   <div className='info'>
-                    <h2 className='name js_namePreview'>Nombre Apellido</h2>
+                    <h2 className='name js_namePreview'>{renderData}</h2>
                     <h3 className='proffesion js_jobPreview'>
-                      Front-end Developer
+                      {renderDataJob}
                     </h3>
                   </div>
                 </div>
@@ -232,7 +295,7 @@ function App() {
                       id='name'
                       type='text'
                       name='name'
-                      value={data.name}
+                      // value={data.name}
                       onChange={handleInput}
                       required
                     />
@@ -246,6 +309,7 @@ function App() {
                       id='job'
                       type='text'
                       name='job'
+                      onChange={handleInput}
                       required
                     />
 
