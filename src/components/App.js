@@ -7,26 +7,6 @@ import logoAdalab from '../images/logo-adalab.png';
 import { useState } from 'react';
 
 function App() {
-<<<<<<< HEAD
-const [collapsable1, setCollapsable1] = useState ('');
-const [collapsable2, setCollapsable2] = useState ('hidden');
-const [collapsable3, setCollapsable3] = useState ('hidden');
-//función para collapsable 1
-const handleCollapsable1 = () =>{
-if (collapsable1 === ''){
-setCollapsable1('hidden');
-}else if(collapsable1 === 'hidden'){
-  setCollapsable1('')
-}
-};
-//función para collapsable 2
-const handleCollapsable2 = () =>{
-  if (collapsable2 === ''){
-  setCollapsable2('hidden');
-  }else if(collapsable2 === 'hidden'){
-    setCollapsable2('')
-  }
-=======
   const [collapsable1, setCollapsable1] = useState('');
   const [collapsable2, setCollapsable2] = useState('hidden');
   const [collapsable3, setCollapsable3] = useState('hidden');
@@ -45,7 +25,6 @@ const handleCollapsable2 = () =>{
     } else if (collapsable2 === 'hidden') {
       setCollapsable2('');
     }
->>>>>>> daniela
   };
   // función para collapsable 3
   const handleCollapsable3 = () => {
@@ -54,28 +33,6 @@ const handleCollapsable2 = () =>{
     } else if (collapsable3 === 'hidden') {
       setCollapsable3('');
     }
-<<<<<<< HEAD
-    };
-    ///////////FORMULARIO
-    const [data, setData] = useState(
-      {
-        name: '',
-        job: ''
-      }
-    );
-const handleInput = (ev) => {
-  const input = ev.currentTarget.name;
-
-  if(input === 'name'){
-    setData (ev.currentTarget.value)
-
-  }else if ( input === 'job'){
-    setData (ev.currentTarget.value)
-  }else{
-    setData (ev.currentTarget.value)
-  } 
-}
-=======
   };
 
   //flechas
@@ -106,7 +63,6 @@ const handleInput = (ev) => {
       setArrow3('');
     }
   };
->>>>>>> daniela
 
   return (
     <div>
@@ -184,16 +140,11 @@ const handleInput = (ev) => {
                     <i className='far fa-object-ungroup dropdown__ungroup'></i>
                     <h2 className='dropdown__title'>diseña</h2>
                   </div>
-<<<<<<< HEAD
-                  <div className='js-arrow' >
-                    <i className='js-chevron fas fa-chevron-up'></i>
-=======
                   {/* 1a flecha  */}
                   <div className='js-arrow' onClick={handleArrow1}>
                     <i
                       className={`js-chevron fas fa-chevron-down ${arrow1}`}
                     ></i>
->>>>>>> daniela
                   </div>
                 </div>
 
@@ -257,14 +208,6 @@ const handleInput = (ev) => {
                       <i className='far fa-keyboard'></i>
                       <h2 className='fill__dropdown--title'> RELLENA</h2>
                     </div>
-<<<<<<< HEAD
-                    <div className=' fill__dropdown--arrow .js-arrow2'>
-                      
-                      <i className='fas fa-chevron-down js-chevron2'></i>
-                    </div>
-                  </div>
-                  <form 
-=======
                     {/* 2a flecha */}
                     <div
                       className=' fill__dropdown--arrow .js-arrow2'
@@ -276,7 +219,6 @@ const handleInput = (ev) => {
                     </div>
                   </div>
                   <form
->>>>>>> daniela
                     className={`fill__form js-collapsable2 ${collapsable2}`}
                     action=''
                     method='post'
@@ -386,14 +328,6 @@ const handleInput = (ev) => {
                     <h2 className='dropdown__title'>comparte</h2>
                   </div>
                   {/* tercera flecha */}
-<<<<<<< HEAD
-                  <div >
-                    <i className='js-chevron3 fas fa-chevron-down'></i>
-                  </div>
-                </div>
-
-                <section className={`create js-collapsable3  ${collapsable3}`}>
-=======
                   <div onClick={handleArrow3}>
                     <i
                       className={`js-chevron3 fas fa-chevron-down ${arrow3}`}
@@ -402,7 +336,6 @@ const handleInput = (ev) => {
                 </div>
 
                 <section className={`create js-collapsable3 ${collapsable3}`}>
->>>>>>> daniela
                   <button className='create__btn js-createBtn' name='create'>
                     <i className='far fa-address-card create__address'></i>crear
                     tarjeta
