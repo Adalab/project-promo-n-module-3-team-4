@@ -125,16 +125,6 @@ function App() {
     renderDataJob = data.job;
   }
 
-  // let renderDataEmail;
-  // if (data.email = '') {
-  //   renderDataEmail =
-  // }
-
-  // const renderData = () => {
-  //   return data.map((data, index) => {
-  //     if (data.id === )
-  //   })
-  // }
   return (
     <div>
       <main className='main-card'>
