@@ -113,14 +113,22 @@ function App() {
 
   let renderData;
   if (data.name === '') {
+    renderData = 'unicornio';
+  } else {
     renderData = data.name;
   }
-  console.log('pasa x aqui');
+
   let renderDataJob;
   if (data.job === '') {
+    renderDataJob = 'NINI';
+  } else {
     renderDataJob = data.job;
-    //renderDataJob = 'Unicornio';
   }
+
+  // let renderDataEmail;
+  // if (data.email = '') {
+  //   renderDataEmail =
+  // }
 
   // const renderData = () => {
   //   return data.map((data, index) => {
@@ -345,6 +353,7 @@ function App() {
                       id='email'
                       type='email'
                       name='email'
+                      onChange={handleInput}
                       required
                     />
 
@@ -357,6 +366,7 @@ function App() {
                       id='phone'
                       type='tel'
                       name='phone'
+                      onChange={handleInput}
                     />
 
                     <label className='style_label' htmlFor='linkedin'>
@@ -368,6 +378,7 @@ function App() {
                       id='linkedin'
                       type='text'
                       name='linkedin'
+                      onChange={handleInput}
                       required
                     />
 
@@ -380,6 +391,7 @@ function App() {
                       id='github'
                       type='text'
                       name='github'
+                      onChange={handleInput}
                       required
                     />
                   </form>
