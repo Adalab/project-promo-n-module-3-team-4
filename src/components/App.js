@@ -113,14 +113,14 @@ function App() {
 
   let renderData;
   if (data.name === '') {
-    renderData = 'unicornio';
+    renderData = 'Unicornio Unicornio';
   } else {
     renderData = data.name;
   }
 
   let renderDataJob;
   if (data.job === '') {
-    renderDataJob = 'NINI';
+    renderDataJob = 'Front End Unicornio';
   } else {
     renderDataJob = data.job;
   }
