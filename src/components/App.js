@@ -10,57 +10,39 @@ function App() {
   const [collapsable1, setCollapsable1] = useState('');
   const [collapsable2, setCollapsable2] = useState('hidden');
   const [collapsable3, setCollapsable3] = useState('hidden');
+  //flechas
+  const [arrow1, setArrow1] = useState('upDown');
+  const [arrow2, setArrow2] = useState('');
+  const [arrow3, setArrow3] = useState('');
+
   //función para collapsable 1
   const handleCollapsable1 = () => {
     if (collapsable1 === '') {
       setCollapsable1('hidden');
+      setArrow1('');
     } else if (collapsable1 === 'hidden') {
       setCollapsable1('');
+      setArrow1('upDown');
     }
   };
   //función para collapsable 2
   const handleCollapsable2 = () => {
     if (collapsable2 === '') {
       setCollapsable2('hidden');
+      setArrow2('');
     } else if (collapsable2 === 'hidden') {
       setCollapsable2('');
+      setArrow2('upDown');
     }
   };
   // función para collapsable 3
   const handleCollapsable3 = () => {
     if (collapsable3 === '') {
       setCollapsable3('hidden');
+      setArrow3('');
     } else if (collapsable3 === 'hidden') {
       setCollapsable3('');
-    }
-  };
-
-  //flechas
-  const [arrow1, setArrow1] = useState('upDown');
-  const [arrow2, setArrow2] = useState('');
-  const [arrow3, setArrow3] = useState('');
-
-  const handleArrow1 = () => {
-    if (arrow1 === '') {
-      setArrow1('upDown');
-    } else if (arrow1 === 'upDown') {
-      setArrow1('');
-    }
-  };
-
-  const handleArrow2 = () => {
-    if (arrow2 === '') {
-      setArrow2('upDown');
-    } else if (arrow2 === 'upDown') {
-      setArrow2('');
-    }
-  };
-
-  const handleArrow3 = () => {
-    if (arrow3 === '') {
       setArrow3('upDown');
-    } else if (arrow3 === 'upDown') {
-      setArrow3('');
     }
   };
 
@@ -202,7 +184,7 @@ function App() {
                     <h2 className='dropdown__title'>diseña</h2>
                   </div>
                   {/* 1a flecha  */}
-                  <div className='js-arrow' onClick={handleArrow1}>
+                  <div className='js-arrow'>
                     <i
                       className={`js-chevron fas fa-chevron-down ${arrow1}`}
                     ></i>
@@ -270,10 +252,7 @@ function App() {
                       <h2 className='fill__dropdown--title'> RELLENA</h2>
                     </div>
                     {/* 2a flecha */}
-                    <div
-                      className=' fill__dropdown--arrow .js-arrow2'
-                      onClick={handleArrow2}
-                    >
+                    <div className=' fill__dropdown--arrow .js-arrow2'>
                       <i
                         className={`fas fa-chevron-down js-chevron2 ${arrow2}`}
                       ></i>
@@ -394,7 +373,7 @@ function App() {
                     <h2 className='dropdown__title'>comparte</h2>
                   </div>
                   {/* tercera flecha */}
-                  <div onClick={handleArrow3}>
+                  <div>
                     <i
                       className={`js-chevron3 fas fa-chevron-down ${arrow3}`}
                     ></i>
