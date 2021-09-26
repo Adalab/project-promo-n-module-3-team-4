@@ -15,6 +15,11 @@ function App() {
   const [arrow2, setArrow2] = useState('');
   const [arrow3, setArrow3] = useState('');
 
+  //Palette radios
+  const [paletteRadio, setPaletteRadio] = useState(true);
+  // const [paletteRadio2, setPaletteRadio2] = useState(false);
+  // const [paletteRadio3, setPaletteRadio3] = useState(false);
+
   //función para collapsable 1
   const handleCollapsable1 = () => {
     if (collapsable1 === '') {
@@ -48,6 +53,7 @@ function App() {
 
   //FORMULARIO
   const [data, setData] = useState({
+    palette: '',
     name: '',
     job: '',
     email: '',
@@ -59,8 +65,15 @@ function App() {
   console.log(data);
 
   const handleInput = (ev) => {
+    const paletteColor = ev.target.value;
     const dataInput = ev.currentTarget.name;
-    if (dataInput === 'name') {
+    //hemos añadido este if para intentar cambiar la paleta seleccionada y guardarla en el objeto
+    if (paletteColor === 'palette1') {
+      setData({
+        ...data,
+        palette: palette1,
+      });
+    } else if (dataInput === 'name') {
       setData({
         ...data,
         name: ev.currentTarget.value,
@@ -205,6 +218,7 @@ function App() {
                         value='1'
                         name='palette'
                         className='design-form__palette--radio'
+                        onChange={handleInput}
                         // checked
                       />
                       <img
@@ -220,6 +234,7 @@ function App() {
                         value='2'
                         name='palette'
                         className='design-form__palette--radio'
+                        onChange={handleInput}
                       />
                       <img
                         src={palette2}
@@ -234,6 +249,7 @@ function App() {
                         value='3'
                         name='palette'
                         className='design-form__palette--radio'
+                        onChange={handleInput}
                       />
                       <img
                         src={palette3}
