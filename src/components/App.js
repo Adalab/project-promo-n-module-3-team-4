@@ -65,6 +65,13 @@ function App() {
   };
 
   //FORMULARIO
+
+  const [palettes, setPalettes] = useState("palette1");
+
+  const handlePalettes = (ev) => {
+    setPalettes(ev.target.value);
+  };
+
   const [data, setData] = useState({
     name: "",
     job: "",
@@ -139,7 +146,7 @@ function App() {
               <button className="preview--button  js-reset">
                 <i className="far fa-trash-alt"></i> Reset
               </button>
-              <div className="preview--card  palette1 js-edge">
+              <div className={`preview--card  palette1 js-edge ${palettes}`}>
                 <div className="preview--card__info">
                   <div className="preview--edge"></div>
                   <div className="info">
@@ -159,7 +166,7 @@ function App() {
                 <div className="icons">
                   <a
                     rel="noreferrer"
-                    href=""
+                    href="/#"
                     target="_blank"
                     className="icons--border js-icons js_telPreview"
                   >
@@ -175,7 +182,7 @@ function App() {
                   </a>
                   <a
                     rel="noreferrer"
-                    href=""
+                    href="/#"
                     target="_blank"
                     className="icons--border js_linkedinPreview"
                   >
@@ -183,7 +190,7 @@ function App() {
                   </a>
                   <a
                     rel="noreferrer"
-                    href=""
+                    href="/#"
                     target="_blank"
                     className="icons--border js_githubPreview"
                   >
@@ -220,10 +227,11 @@ function App() {
                       <input
                         type="radio"
                         id="palette1"
-                        value="1"
+                        value="palette1"
                         name="palette"
                         className="design-form__palette--radio"
-                        // checked
+                        onChange={handlePalettes}
+                        checked={palettes === "palette1"}
                       />
                       <img
                         src={palette1}
@@ -235,9 +243,11 @@ function App() {
                       <input
                         type="radio"
                         id="palette2"
-                        value="2"
+                        value="palette2"
                         name="palette"
                         className="design-form__palette--radio"
+                        onChange={handlePalettes}
+                        checked={palettes === "palette2"}
                       />
                       <img
                         src={palette2}
@@ -249,9 +259,11 @@ function App() {
                       <input
                         type="radio"
                         id="palette3"
-                        value="3"
+                        value="palette3"
                         name="palette"
                         className="design-form__palette--radio"
+                        onChange={handlePalettes}
+                        checked={palettes === "palette3"}
                       />
                       <img
                         src={palette3}
@@ -415,7 +427,7 @@ function App() {
                     <button className="created__btn twitter--button">
                       <a
                         rel="noreferrer"
-                        href="#"
+                        href="/#"
                         className="created__btn--text twitter--link"
                       >
                         <i className="fab fa-twitter created__btn--icon"></i>
