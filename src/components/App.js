@@ -67,7 +67,7 @@ function App() {
   const handleInput = (ev) => {
     const paletteColor = ev.target.value;
     const dataInput = ev.currentTarget.name;
-    //hemos añadido este if para intentar cambiar la paleta seleccionada y guardarla en el objeto
+    //hemos añadido este if para intentar cambiar la paleta seleccionada y guardarla en el objeto, pero no va
     if (paletteColor === 'palette1') {
       setData({
         ...data,
@@ -120,6 +120,11 @@ function App() {
     renderDataJob = data.job;
   }
 
+  //función para que al pulsar el botón de reset se refresque la página y se borre todo lo escrito en el formulario/tarjeta.
+  const handleClickReset = () => {
+    window.location.reload(false);
+  };
+
   return (
     <div>
       <main className='main-card'>
@@ -131,7 +136,10 @@ function App() {
         <div className='mediaqueries'>
           <section className='preview'>
             <div>
-              <button className='preview--button  js-reset'>
+              <button
+                className='preview--button  js-reset'
+                onClick={handleClickReset}
+              >
                 <i className='far fa-trash-alt'></i> Reset
               </button>
               <div className='preview--card  palette1 js-edge'>
