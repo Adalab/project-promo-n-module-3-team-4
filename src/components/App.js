@@ -10,21 +10,12 @@ function App() {
   const [collapsable1, setCollapsable1] = useState("");
   const [collapsable2, setCollapsable2] = useState("hidden");
   const [collapsable3, setCollapsable3] = useState("hidden");
-  const [arrow1, setArrow1] = useState("upDown");
-  const [arrow2, setArrow2] = useState("upDown");
-  const [arrow3, setArrow3] = useState("upDown");
-
   //función para collapsable 1
   const handleCollapsable1 = () => {
     if (collapsable1 === "") {
       setCollapsable1("hidden");
     } else if (collapsable1 === "hidden") {
       setCollapsable1("");
-    }
-    if (arrow1 === "") {
-      setArrow1("upDown");
-    } else if (arrow1 === "upDown") {
-      setArrow1("");
     }
   };
   //función para collapsable 2
@@ -34,11 +25,6 @@ function App() {
     } else if (collapsable2 === "hidden") {
       setCollapsable2("");
     }
-    if (arrow2 === "") {
-      setArrow2("upDown");
-    } else if (arrow2 === "upDown") {
-      setArrow2("");
-    }
   };
   // función para collapsable 3
   const handleCollapsable3 = () => {
@@ -47,28 +33,97 @@ function App() {
     } else if (collapsable3 === "hidden") {
       setCollapsable3("");
     }
+  };
+
+  //flechas
+  const [arrow1, setArrow1] = useState("upDown");
+  const [arrow2, setArrow2] = useState("");
+  const [arrow3, setArrow3] = useState("");
+
+  const handleArrow1 = () => {
+    if (arrow1 === "") {
+      setArrow1("upDown");
+    } else if (arrow1 === "upDown") {
+      setArrow1("");
+    }
+  };
+
+  const handleArrow2 = () => {
+    if (arrow2 === "") {
+      setArrow2("upDown");
+    } else if (arrow2 === "upDown") {
+      setArrow2("");
+    }
+  };
+
+  const handleArrow3 = () => {
     if (arrow3 === "") {
       setArrow3("upDown");
     } else if (arrow3 === "upDown") {
       setArrow3("");
     }
   };
-  ///////////FORMULARIO
+
+  //FORMULARIO
   const [data, setData] = useState({
     name: "",
     job: "",
+    email: "",
+    phone: "",
+    linkedin: "",
+    github: "",
   });
-  const handleInput = (ev) => {
-    const input = ev.currentTarget.name;
 
-    if (input === "name") {
-      setData(ev.currentTarget.value);
-    } else if (input === "job") {
-      setData(ev.currentTarget.value);
-    } else {
-      setData(ev.currentTarget.value);
+  console.log(data);
+
+  const handleInput = (ev) => {
+    const dataInput = ev.currentTarget.name;
+    if (dataInput === "name") {
+      setData({
+        ...data,
+        name: ev.currentTarget.value,
+      });
+    } else if (dataInput === "job") {
+      setData({
+        ...data,
+        job: ev.currentTarget.value,
+      });
+    } else if (dataInput === "email") {
+      setData({
+        ...data,
+        email: ev.currentTarget.value,
+      });
+    } else if (dataInput === "phone") {
+      setData({
+        ...data,
+        phone: ev.currentTarget.value,
+      });
+    } else if (dataInput === "linkedin") {
+      setData({
+        ...data,
+        linkedin: ev.currentTarget.value,
+      });
+    } else if (dataInput === "github") {
+      setData({
+        ...data,
+        github: ev.currentTarget.value,
+      });
     }
   };
+
+  let renderData;
+  if (data.name === "") {
+    renderData = "Unicornio Unicornio";
+  } else {
+    renderData = data.name;
+  }
+
+  let renderDataJob;
+  if (data.job === "") {
+    renderDataJob = "Front End Unicornio";
+  } else {
+    renderDataJob = data.job;
+  }
 
   return (
     <div>
@@ -88,9 +143,9 @@ function App() {
                 <div className="preview--card__info">
                   <div className="preview--edge"></div>
                   <div className="info">
-                    <h2 className="name js_namePreview">Nombre Apellido</h2>
+                    <h2 className="name js_namePreview">{renderData}</h2>
                     <h3 className="proffesion js_jobPreview">
-                      Front-end Developer
+                      {renderDataJob}
                     </h3>
                   </div>
                 </div>
@@ -146,8 +201,11 @@ function App() {
                     <i className="far fa-object-ungroup dropdown__ungroup"></i>
                     <h2 className="dropdown__title">diseña</h2>
                   </div>
-                  <div className="js-arrow">
-                    <i className={`js-chevron fas fa-chevron-up ${arrow1}`}></i>
+                  {/* 1a flecha  */}
+                  <div className="js-arrow" onClick={handleArrow1}>
+                    <i
+                      className={`js-chevron fas fa-chevron-down ${arrow1}`}
+                    ></i>
                   </div>
                 </div>
 
@@ -211,7 +269,11 @@ function App() {
                       <i className="far fa-keyboard"></i>
                       <h2 className="fill__dropdown--title"> RELLENA</h2>
                     </div>
-                    <div className=" fill__dropdown--arrow .js-arrow2">
+                    {/* 2a flecha */}
+                    <div
+                      className=" fill__dropdown--arrow .js-arrow2"
+                      onClick={handleArrow2}
+                    >
                       <i
                         className={`fas fa-chevron-down js-chevron2 ${arrow2}`}
                       ></i>
@@ -231,7 +293,7 @@ function App() {
                       id="name"
                       type="text"
                       name="name"
-                      value={data.name}
+                      // value={data.name}
                       onChange={handleInput}
                       required
                     />
@@ -245,6 +307,7 @@ function App() {
                       id="job"
                       type="text"
                       name="job"
+                      onChange={handleInput}
                       required
                     />
 
@@ -280,6 +343,7 @@ function App() {
                       id="email"
                       type="email"
                       name="email"
+                      onChange={handleInput}
                       required
                     />
 
@@ -292,6 +356,7 @@ function App() {
                       id="phone"
                       type="tel"
                       name="phone"
+                      onChange={handleInput}
                     />
 
                     <label className="style_label" htmlFor="linkedin">
@@ -303,6 +368,7 @@ function App() {
                       id="linkedin"
                       type="text"
                       name="linkedin"
+                      onChange={handleInput}
                       required
                     />
 
@@ -315,6 +381,7 @@ function App() {
                       id="github"
                       type="text"
                       name="github"
+                      onChange={handleInput}
                       required
                     />
                   </form>
@@ -327,14 +394,14 @@ function App() {
                     <h2 className="dropdown__title">comparte</h2>
                   </div>
                   {/* tercera flecha */}
-                  <div>
+                  <div onClick={handleArrow3}>
                     <i
                       className={`js-chevron3 fas fa-chevron-down ${arrow3}`}
                     ></i>
                   </div>
                 </div>
 
-                <section className={`create js-collapsable3  ${collapsable3}`}>
+                <section className={`create js-collapsable3 ${collapsable3}`}>
                   <button className="create__btn js-createBtn" name="create">
                     <i className="far fa-address-card create__address"></i>crear
                     tarjeta
