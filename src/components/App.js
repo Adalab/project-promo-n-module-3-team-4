@@ -154,33 +154,37 @@ function App() {
                 <div className='icons'>
                   <a
                     rel='noreferrer'
-                    href=''
+                    href={`tel: ${data.phone}`}
                     target='_blank'
                     className='icons--border js-icons js_telPreview'
+                    id='tel'
                   >
                     <i className='fas fa-mobile-alt'></i>
                   </a>
                   <a
                     rel='noreferrer'
-                    href='mailto:'
+                    href={`mailto: ${data.email}`}
                     target='_blanck'
                     className='icons--border js_emailPreview'
+                    id='email'
                   >
                     <i className='far fa-envelope'></i>
                   </a>
                   <a
                     rel='noreferrer'
-                    href=''
+                    href={`https://www.linkedin.com/in/${data.linkedin}`}
                     target='_blank'
                     className='icons--border js_linkedinPreview'
+                    id='linkedin'
                   >
                     <i className='fab fa-linkedin-in'></i>
                   </a>
                   <a
                     rel='noreferrer'
-                    href=''
+                    href={`https://www.github.com/${data.github}`}
                     target='_blank'
                     className='icons--border js_githubPreview'
+                    id='github'
                   >
                     <i className='fab fa-github-alt'></i>
                   </a>
