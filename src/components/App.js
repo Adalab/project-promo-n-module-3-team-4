@@ -1,9 +1,10 @@
 import "../styles/main.scss";
-import logo from "../images/logo-awesome-profile-cards.svg";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import palette1 from "../images/palette1.png";
 import palette2 from "../images/palette2.png";
 import palette3 from "../images/palette3.png";
-import logoAdalab from "../images/logo-adalab.png";
+
 import { useState } from "react";
 
 function App() {
@@ -127,12 +128,8 @@ function App() {
 
   return (
     <div>
-      <main className="main-card">
-        <header className="header">
-          <a rel="noreferrer" href="index.html">
-            <img className="logo-awesome-header" src={logo} alt="" />
-          </a>
-        </header>
+      <Header />
+      <main>
         <div className="mediaqueries">
           <section className="preview">
             <div>
@@ -438,11 +435,7 @@ function App() {
           </section>
         </div>
       </main>
-
-      <footer className="footer">
-        <small className="info-footer">awesom profile-cards @2018</small>
-        <img className="logo-adalab" src={logoAdalab} alt="logo-adalab" />
-      </footer>
+      <Footer />
     </div>
   );
 }
