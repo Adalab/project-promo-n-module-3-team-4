@@ -6,6 +6,21 @@ import palette3 from "../images/palette3.png";
 import logoAdalab from "../images/logo-adalab.png";
 import { useState } from "react";
 
+import React from 'react';
+import GetAvatar from '../components/GetAvatar';
+import Profile from '../components/Profile';
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
   const [collapsable1, setCollapsable1] = useState("");
   const [collapsable2, setCollapsable2] = useState("hidden");
@@ -14,6 +29,7 @@ function App() {
   const [arrow1, setArrow1] = useState("upDown");
   const [arrow2, setArrow2] = useState("");
   const [arrow3, setArrow3] = useState("");
+
 
   //función para collapsable 1
   const handleCollapsable1 = () => {
@@ -126,6 +142,7 @@ function App() {
   };
 
   return (
+    
     <div>
       <main className="main-card">
         <header className="header">
