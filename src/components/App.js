@@ -15,11 +15,6 @@ function App() {
   const [arrow2, setArrow2] = useState("");
   const [arrow3, setArrow3] = useState("");
 
-  //Palette radios
-  const [paletteRadio, setPaletteRadio] = useState(true);
-  // const [paletteRadio2, setPaletteRadio2] = useState(false);
-  // const [paletteRadio3, setPaletteRadio3] = useState(false);
-
   //función para collapsable 1
   const handleCollapsable1 = () => {
     if (collapsable1 === "") {
@@ -53,10 +48,15 @@ function App() {
 
   //FORMULARIO
 
+  //Palette radios
   const [palettes, setPalettes] = useState("palette1");
 
   const handlePalettes = (ev) => {
     setPalettes(ev.target.value);
+    setData({
+      ...data,
+      palette: ev.currentTarget.value,
+    });
   };
 
   const [data, setData] = useState({
@@ -72,15 +72,8 @@ function App() {
   console.log(data);
 
   const handleInput = (ev) => {
-    const paletteColor = ev.target.value;
     const dataInput = ev.currentTarget.name;
-    //hemos añadido este if para intentar cambiar la paleta seleccionada y guardarla en el objeto, pero no va
-    if (paletteColor === "palette1") {
-      setData({
-        ...data,
-        palette: palette1,
-      });
-    } else if (dataInput === "name") {
+    if (dataInput === "name") {
       setData({
         ...data,
         name: ev.currentTarget.value,
