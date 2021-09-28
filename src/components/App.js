@@ -1,6 +1,8 @@
 import '../styles/main.scss';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Preview from '../components/Preview';
+import Collapsable from './Collapsable';
 import palette1 from '../images/palette1.png';
 import palette2 from '../images/palette2.png';
 import palette3 from '../images/palette3.png';
@@ -107,6 +109,7 @@ function App() {
     }
   };
 
+  //estas dos variables y sus ifs habria que pasarlos a preview o se dejan aqui ¿?
   let renderData;
   if (data.name === '') {
     renderData = 'Unicornio Unicornio';
@@ -122,100 +125,29 @@ function App() {
   }
 
   //función para que al pulsar el botón de reset se refresque la página y se borre todo lo escrito en el formulario/tarjeta.
-  const handleClickReset = () => {
-    window.location.reload(false);
-  };
+  // const handleClickReset = () => {
+  //   window.location.reload(false);
+  // };
 
   return (
     <div>
       <Header />
       <main>
         <div className='mediaqueries'>
-          {/* Empieza preview
-        <Preview /> */}
-          <section className='preview'>
-            <div>
-              <button
-                className='preview--button  js-reset'
-                onClick={handleClickReset}
-              >
-                <i className='far fa-trash-alt'></i> Reset
-              </button>
-              <div className={`preview--card  palette1 js-edge ${palettes}`}>
-                <div className='preview--card__info'>
-                  <div className='preview--edge'></div>
-                  <div className='info'>
-                    <h2 className='name js_namePreview'>{renderData}</h2>
-                    <h3 className='proffesion js_jobPreview'>
-                      {renderDataJob}
-                    </h3>
-                  </div>
-                </div>
-                <div
-                  className='image-preview profile__image js__profile-image'
-                  style={{
-                    backgroundImage:
-                      'url(https://via.placeholder.com/300x300/cccccc/666666/?text=IMAGE)',
-                  }}
-                ></div>
-                <div className='icons'>
-                  <a
-                    rel='noreferrer'
-                    href={`tel: ${data.phone}`}
-                    target='_blank'
-                    className='icons--border js-icons js_telPreview'
-                    id='tel'
-                  >
-                    <i className='fas fa-mobile-alt'></i>
-                  </a>
-                  <a
-                    rel='noreferrer'
-                    href={`mailto: ${data.email}`}
-                    target='_blanck'
-                    className='icons--border js_emailPreview'
-                    id='email'
-                  >
-                    <i className='far fa-envelope'></i>
-                  </a>
-                  <a
-                    rel='noreferrer'
-                    href={`https://www.linkedin.com/in/${data.linkedin}`}
-                    target='_blank'
-                    className='icons--border js_linkedinPreview'
-                    id='linkedin'
-                  >
-                    <i className='fab fa-linkedin-in'></i>
-                  </a>
-                  <a
-                    rel='noreferrer'
-                    href={`https://www.github.com/${data.github}`}
-                    target='_blank'
-                    className='icons--border js_githubPreview'
-                    id='github'
-                  >
-                    <i className='fab fa-github-alt'></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-          {/* Termina preview  */}
+          <Preview
+            palettePreview={palettes}
+            renderName={renderData}
+            renderJob={renderDataJob}
+          />
           <section className='mediaqueries-form'>
             <nav className='js-form'>
               <section className='design wrapper container'>
-                <div className='dropdown' onClick={handleCollapsable1}>
-                  <div className='dropdown__header'>
-                    <i className='far fa-object-ungroup dropdown__ungroup'></i>
-                    <h2 className='dropdown__title'>diseña</h2>
-                  </div>
-                  {/* 1a flecha  */}
-                  <div className='js-arrow'>
-                    <i
-                      className={`js-chevron fas fa-chevron-down ${arrow1}`}
-                    ></i>
-                  </div>
-                </div>
-
+                {/* Collapsable */}
+                <Collapsable
+                  handleCollapsable={handleCollapsable1}
+                  text={'Diseña'}
+                  arrow={arrow1}
+                />
                 <div className={`design-form js-collapsable ${collapsable1}`}>
                   <h3 className='design-form__description'>colores</h3>
                   <form
@@ -240,6 +172,7 @@ function App() {
                       />
                     </div>
                     <div className='design-form__palette--item'>
+                      {/* Paleta  */}
                       <input
                         type='radio'
                         id='palette2'
@@ -274,25 +207,20 @@ function App() {
                   </form>
                 </div>
               </section>
-              <section>
+              <section className='fill wrapper '>
+                {/* Collapsable */}
+                <Collapsable
+                  handleCollapsable={handleCollapsable2}
+                  text={'Rellena'}
+                  arrow={arrow2}
+                />
                 <div className='fill wrapper container2'>
-                  <div className='fill__dropdown' onClick={handleCollapsable2}>
-                    <div className='fill__dropdown--icon'>
-                      <i className='far fa-keyboard'></i>
-                      <h2 className='fill__dropdown--title'> RELLENA</h2>
-                    </div>
-                    {/* 2a flecha */}
-                    <div className=' fill__dropdown--arrow .js-arrow2'>
-                      <i
-                        className={`fas fa-chevron-down js-chevron2 ${arrow2}`}
-                      ></i>
-                    </div>
-                  </div>
                   <form
                     className={`fill__form js-collapsable2 ${collapsable2}`}
                     action=''
                     method='post'
                   >
+                    {/* Label e Input */}
                     <label className='style_label' htmlFor='name'>
                       Nombre completo
                     </label>
@@ -397,19 +325,12 @@ function App() {
                 </div>
               </section>
               <section className='share wrapper'>
-                <div className='dropdown' onClick={handleCollapsable3}>
-                  <div className='dropdown__header'>
-                    <i className='far fa-share-alt dropdown__ungroup'></i>
-                    <h2 className='dropdown__title'>comparte</h2>
-                  </div>
-                  {/* tercera flecha */}
-                  <div>
-                    <i
-                      className={`js-chevron3 fas fa-chevron-down ${arrow3}`}
-                    ></i>
-                  </div>
-                </div>
-
+                {/* Componente con flecha y colapsable */}
+                <Collapsable
+                  handleCollapsable={handleCollapsable3}
+                  text={'Comparte'}
+                  arrow={arrow3}
+                />
                 <section className={`create js-collapsable3 ${collapsable3}`}>
                   <button className='create__btn js-createBtn' name='create'>
                     <i className='far fa-address-card create__address'></i>crear

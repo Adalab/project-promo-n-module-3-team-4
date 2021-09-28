@@ -1,3 +1,10 @@
+@import '../core/variables.scss';
+@import '../core/reset.scss';
+@import '../core/mixins.scss';
+@import '../pages/card.scss';
+@import '../pages/index.scss';
+@import '../layout/formShare.scss';
+
 //HEADER -- FORMS
 
 .dropdown {
@@ -152,3 +159,9 @@
         }
     }
 }
+
+
+//MIRAR ESTA CLASE PORQUE HAY QUE QUITARLA CUANDO PONGAMOS EL BOTON DE CREAR
+.hidden {
+   display: none;
+ }

@@ -1,4 +1,4 @@
-//import "../styles/core/variables.scss";
+import '../styles/core/variables.scss';
 import '../styles/core/reset.scss';
 import '../styles/core/mixins.scss';
 import '../styles/layout/footer.scss';
