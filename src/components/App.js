@@ -7,8 +7,10 @@ import FormPalette from "./FormPalette";
 import palette1 from "../images/palette1.png";
 import palette2 from "../images/palette2.png";
 import palette3 from "../images/palette3.png";
+import Api from "../services/Api";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CreateCard from "./CreateCard";
 
 function App() {
   const [collapsable1, setCollapsable1] = useState("");
@@ -49,6 +51,19 @@ function App() {
       setArrow3("upDown");
     }
   };
+
+  //USE EFFECT
+  useEffect(() => {
+    // Aquí podemos poner código JS, por ejemplo podríamos llamar a callToApi dentro de un if
+
+    // Llamamos al API pasando por parámetros el searchName
+    callToApi(setData).then((response) => {
+      // Cuando el API responde guardamos los personajes en el estado
+      setData(response);
+    });
+    // Este useEffect depende de searchName por eso ponemos [searchName]
+    // Cuando la usuaria cambia el searchName este useEffect se vuelve a ejecutar porque necesitamos llamar otra vez al API para obtener nuevos datos
+  }, [setData]);
 
   //FORMULARIO
 
@@ -308,27 +323,8 @@ function App() {
                 arrow={arrow3}
               />
               {/* componente crear tarjeta */}
-              <section className={`create js-collapsable3 ${collapsable3}`}>
-                <button className="create__btn js-createBtn" name="create">
-                  <i className="far fa-address-card create__address"></i>crear
-                  tarjeta
-                </button>
+              <CreateCard collapsable3={collapsable3} />
 
-                <div className="created hidden js-cardCreated">
-                  <h3 className="created__title">La tarjeta ha sido creada:</h3>
-                  {/* <a rel="noreferrer" href="" target="_blank" className="created__url js-url"></a> */}
-                  <button className="created__btn twitter--button">
-                    <a
-                      rel="noreferrer"
-                      href="/#"
-                      className="created__btn--text twitter--link"
-                    >
-                      <i className="fab fa-twitter created__btn--icon"></i>
-                      Compartir en Twitter
-                    </a>
-                  </button>
-                </div>
-              </section>
               {/* termina crear tarjeta  */}
             </section>
             {/* </nav> */}
