@@ -149,13 +149,9 @@ function App() {
                 text={"Diseña"}
                 arrow={arrow1}
               />
-              <div className="design-form js-collapsable ">
+              <div className={`design-form ${collapsable1}`}>
                 <h3 className="design-form__description">colores</h3>
-                <form
-                  action="#"
-                  method="get"
-                  className="design-form__palette js-form"
-                >
+                <form action="#" method="get" className="design-form__palette">
                   {/* COMPONENTE DE LAS IMAGENES/FORM ¿? */}
                   <FormPalette
                     collapsable={collapsable1}
