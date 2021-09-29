@@ -1,67 +1,25 @@
-import FormInput from "./FormInput"
+import "../styles/core/variables.scss";
+import "../styles/core/mixins.scss";
 
-const FormPalette = () => {
-    return (
-        // <div className={`design-form js-collapsable ${collapsable1}`}>
-        //         <h3 className='design-form__description'>colores</h3>
-        //         <form
-        //           action='#'
-        //           method='get'
-        //           className='design-form__palette js-form'
-        //         >
-        //           <div className='design-form__palette--item'>
-        //             {/* Paleta1  */}
-        //             <input
-        //               type='radio'
-        //               id='palette1'
-        //               value='palette1'
-        //               name='palette'
-        //               className='design-form__palette--radio'
-        //               onChange={handlePalettes}
-        //               checked={palettes === 'palette1'}
-        //             />
-        //             <img
-        //               src={palette1}
-        //               className='design-form__palette--image'
-        //               alt='colour palette 1'
-        //             />
-        //           </div>
-        //           <div className='design-form__palette--item'>
-        //             {/* Paleta2  */}
-        //             <input
-        //               type='radio'
-        //               id='palette2'
-        //               value='palette2'
-        //               name='palette'
-        //               className='design-form__palette--radio'
-        //               onChange={handlePalettes}
-        //               checked={palettes === 'palette2'}
-        //             />
-        //             <img
-        //               src={palette2}
-        //               className='design-form__palette--image'
-        //               alt='colour palette 2'
-        //             />
-        //           </div>
-        //           <div className='design-form__palette--item'>
-        //             {/* Paleta3  */}
-        //             <input
-        //               type='radio'
-        //               id='palette3'
-        //               value='palette3'
-        //               name='palette'
-        //               className='design-form__palette--radio'
-        //               onChange={handlePalettes}
-        //               checked={palettes === 'palette3'}
-        //             />
-        //             <img
-        //               src={palette3}
-        //               className='design-form__palette--image'
-        //               alt='colour palette 3'
-        //             />
-        //           </div>
-        //         </form>
-        //       </div>
-    )
-}
+const FormPalette = (props) => {
+  return (
+    <div className="design-form__palette--item">
+      {/* Paleta1  */}
+      <input
+        type="radio"
+        id={props.paletteId}
+        value={props.paletteValue}
+        name="palette"
+        className="design-form__palette--radio"
+        onChange={props.handlePalettes}
+        checked={props.palettesChecked}
+      />
+      <img
+        src={props.paletteImg}
+        className="design-form__palette--image"
+        alt={props.paletteAlt}
+      />
+    </div>
+  );
+};
 export default FormPalette;
