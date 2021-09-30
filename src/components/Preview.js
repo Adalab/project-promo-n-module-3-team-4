@@ -27,8 +27,7 @@ const Preview = (props) => {
           <div
             className='image-preview profile__image'
             style={{
-              backgroundImage:
-                'url(https://via.placeholder.com/300x300/cccccc/666666/?text=IMAGE)',
+              backgroundImage: `url(${props.imageData})`,
             }}
           ></div>
           <div className='icons'>

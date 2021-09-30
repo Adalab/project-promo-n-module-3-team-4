@@ -11,7 +11,7 @@ const FormInput = (props) => {
         id={props.id}
         type={props.type}
         name={props.name}
-        // value={data.name}
+        value={props.value}
         onChange={props.handleInput}
         required
       />

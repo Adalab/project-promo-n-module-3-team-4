@@ -1,17 +1,21 @@
+import { useEffect, useState } from 'react';
+//styles
 import '../styles/main.scss';
+//components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Preview from '../components/Preview';
 import Collapsable from './Collapsable';
 import FormPalette from './FormPalette';
+import CreateCard from './CreateCard';
+import FormInput from './FormInput';
+import ImageReader from './ImageReader';
+import Api from '../services/Api';
+//images
 import palette1 from '../images/palette1.png';
 import palette2 from '../images/palette2.png';
 import palette3 from '../images/palette3.png';
-import Api from '../services/Api';
-
-import { useEffect, useState } from 'react';
-import CreateCard from './CreateCard';
-import FormInput from './FormInput';
+import randomPic from '../images/avatar-woman.png';
 
 function App() {
   const [collapsable1, setCollapsable1] = useState('');
@@ -79,6 +83,7 @@ function App() {
     });
   };
 
+  //Objeto donde guardamos los datos
   const [data, setData] = useState({
     palette: '',
     name: '',
@@ -126,7 +131,6 @@ function App() {
     }
   };
 
-  //estas dos variables y sus ifs habria que pasarlos a preview o se dejan aqui ¿?
   let renderData;
   if (data.name === '') {
     renderData = 'Unicornio Unicornio';
@@ -141,6 +145,13 @@ function App() {
     renderDataJob = data.job;
   }
 
+  //Imagen
+  const [image, setImage] = useState(randomPic);
+
+  const handleImage = (imageData) => {
+    setImage(imageData);
+  };
+
   return (
     <div>
       <Header />
@@ -150,9 +161,13 @@ function App() {
             palettePreview={palettes}
             renderName={renderData}
             renderJob={renderDataJob}
+            imageData={image}
+            phone={data.phone}
+            email={data.email}
+            linkedin={data.linkedin}
+            github={data.github}
           />
           <section className='mediaqueries-form'>
-            {/* <nav className='js-form'> */}
             <section className='design wrapper container'>
               {/* Collapsable */}
               <Collapsable
@@ -163,7 +178,7 @@ function App() {
               <div className={`design-form ${collapsable1}`}>
                 <h3 className='design-form__description'>colores</h3>
                 <form action='#' method='get' className='design-form__palette'>
-                  {/* COMPONENTE DE LAS IMAGENES/FORM ¿? */}
+                  {/* COMPONENTE DE LAS IMAGENES/FORM */}
                   <FormPalette
                     collapsable={collapsable1}
                     paletteId={'palette1'}
@@ -215,6 +230,7 @@ function App() {
                     id={'name'}
                     type={'text'}
                     name={'name'}
+                    value={data.name}
                     handleInput={handleInput}
                   />
                   <FormInput
@@ -224,36 +240,18 @@ function App() {
                     id={'job'}
                     type={'text'}
                     name={'job'}
+                    value={data.job}
                     handleInput={handleInput}
                   />
-                  <div className='fill__addPic action '>
-                    <h5 className='fill__addPic--title'>Imagen de perfil </h5>
-                    <div className='fill__addPic--item'>
-                      <label
-                        className='action__upload-btn fill__addPic--button'
-                        htmlFor='photo'
-                      >
-                        Añadir imagen
-                      </label>
-
-                      <input
-                        type='file'
-                        name='photo'
-                        id='photo'
-                        className='hidden'
-                      />
-
-                      {/*<!-- <button className="fill__addPic--button"> Añadir imagen </button>--> */}
-                      <div className='fill__addPic--pic profile__preview'></div>
-                    </div>
-                  </div>
+                  <ImageReader handleImage={handleImage} />
                   <FormInput
                     htmlFor={'email'}
                     text={'Email'}
-                    placeholder={'Ej: sally-jill@gmail.com'}
+                    placeholder={'Ej: sally-hill@gmail.com'}
                     id={'email'}
                     type={'email'}
                     name={'email'}
+                    value={data.email}
                     handleInput={handleInput}
                   />
                   <FormInput
@@ -263,6 +261,7 @@ function App() {
                     id={'phone'}
                     type={'tel'}
                     name={'phone'}
+                    value={data.phone}
                     handleInput={handleInput}
                   />
                   <FormInput
@@ -272,6 +271,7 @@ function App() {
                     id={'linkedin'}
                     type={'text'}
                     name={'linkedin'}
+                    value={data.linkedin}
                     handleInput={handleInput}
                   />
                   <FormInput
@@ -281,6 +281,7 @@ function App() {
                     id={'github'}
                     type={'text'}
                     name={'github'}
+                    value={data.github}
                     handleInput={handleInput}
                   />
                 </form>
@@ -297,7 +298,6 @@ function App() {
               <CreateCard collapsable3={collapsable3} />
               {/* termina crear tarjeta  */}
             </section>
-            {/* </nav> */}
           </section>
         </div>
       </main>
