@@ -1,3 +1,4 @@
+import { Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //styles
 import '../styles/main.scss';
@@ -11,6 +12,8 @@ import CreateCard from './CreateCard';
 import FormInput from './FormInput';
 import ImageReader from './ImageReader';
 import Api from '../services/Api';
+import Landing from '../Landing';
+
 //images
 import palette1 from '../images/palette1.png';
 import palette2 from '../images/palette2.png';
@@ -153,7 +156,13 @@ function App() {
   };
 
   return (
-    <div>
+    <>
+      <Switch>
+       <Route exact path="/">
+   <Landing/>
+      </Route>
+
+     <Route exact path="/card">
       <Header />
       <main>
         <div className='mediaqueries'>
@@ -302,7 +311,9 @@ function App() {
         </div>
       </main>
       <Footer />
-    </div>
+      </Route>
+      </Switch>
+    </>
   );
 }
 
