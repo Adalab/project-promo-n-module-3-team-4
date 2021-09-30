@@ -1,7 +1,8 @@
 const CreateCard = (props) => {
   return (
     <section className={`create ${props.collapsable3}`}>
-      <button className="create__btn js-createBtn" name="create">
+      <button className="create__btn" 
+      name="create">
         <i className="far fa-address-card create__address"></i>crear tarjeta
       </button>
 
