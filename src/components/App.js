@@ -159,7 +159,7 @@ function App() {
     <>
       <Switch>
        <Route exact path="/">
-   <Landing/>
+        <Landing/>
       </Route>
 
      <Route exact path="/card">

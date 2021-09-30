@@ -2,6 +2,9 @@ import React from "react";
 import Footer from "./components/Footer";
 import { Link } from "react-router-dom";
 import logo from "./images/logo-awesome-profile-cards.svg"
+import './styles/core/variables.scss';
+import './styles/core/mixins.scss';
+import './styles/layout/mainpage.scss';
 const Landing = () => {
     return (
         <>
@@ -28,13 +31,13 @@ const Landing = () => {
              </div>
          </div>
  
-         <Link to="/card">
-         <a className="comenzar" href="./card.html">
              <button className="comenzar">
+             <Link to="/card">
                  <h2 className="title-button">comenzar</h2>
+                 </Link>
              </button>
-         </a>
-         </Link>
+         
+         
  
  </main>
    <Footer />

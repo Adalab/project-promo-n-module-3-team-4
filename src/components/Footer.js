@@ -7,7 +7,7 @@ import logoAdalab from '../images/logo-adalab.png';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <small className='info-footer'>awesom profile-cards @2018</small>
+      <small className='info-footer'>Awesome profile-cards @2021</small>
       <img className='logo-adalab' src={logoAdalab} alt='logo-adalab' />
     </footer>
   );
