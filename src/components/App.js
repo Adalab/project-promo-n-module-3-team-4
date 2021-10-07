@@ -29,6 +29,18 @@ function App() {
   const [arrow2, setArrow2] = useState('');
   const [arrow3, setArrow3] = useState('');
 
+  //estado url api data
+  let [dataUrl, setDataUrl] = useState('');
+  const [twitterButton, setTwitterButton] = useState('hidden');
+
+  //funcion handle boton crear tarjeta
+  const handleShareLink = (ev) => {
+    setTwitterButton('');
+    Api(data);
+    console.log(data);
+    ev.preventDefault();
+  };
+
   //función para collapsable 1
   const handleCollapsable1 = () => {
     if (collapsable1 === '') {
@@ -158,160 +170,169 @@ function App() {
   return (
     <>
       <Switch>
-       <Route exact path="/">
-   <Landing/>
-      </Route>
+        <Route exact path='/'>
+          <Landing />
+        </Route>
 
-     <Route exact path="/card">
-      <Header />
-      <main>
-        <div className='mediaqueries'>
-          <Preview
-            palettePreview={palettes}
-            renderName={renderData}
-            renderJob={renderDataJob}
-            imageData={image}
-            phone={data.phone}
-            email={data.email}
-            linkedin={data.linkedin}
-            github={data.github}
-          />
-          <section className='mediaqueries-form'>
-            <section className='design wrapper container'>
-              {/* Collapsable */}
-              <Collapsable
-                handleCollapsable={handleCollapsable1}
-                text={'Diseña'}
-                arrow={arrow1}
+        <Route exact path='/card'>
+          <Header />
+          <main>
+            <div className='mediaqueries'>
+              <Preview
+                palettePreview={palettes}
+                renderName={renderData}
+                renderJob={renderDataJob}
+                imageData={image}
+                phone={data.phone}
+                email={data.email}
+                linkedin={data.linkedin}
+                github={data.github}
               />
-              <div className={`design-form ${collapsable1}`}>
-                <h3 className='design-form__description'>colores</h3>
-                <form action='#' method='get' className='design-form__palette'>
-                  {/* COMPONENTE DE LAS IMAGENES/FORM */}
-                  <FormPalette
-                    collapsable={collapsable1}
-                    paletteId={'palette1'}
-                    paletteValue={'palette1'}
-                    handlePalettes={handlePalettes}
-                    palettesChecked={palettes === 'palette1'}
-                    paletteImg={palette1}
-                    paletteAlt='colour palette 1'
+              <section className='mediaqueries-form'>
+                <section className='design wrapper container'>
+                  {/* Collapsable */}
+                  <Collapsable
+                    handleCollapsable={handleCollapsable1}
+                    text={'Diseña'}
+                    arrow={arrow1}
                   />
-                  <FormPalette
-                    collapsable={collapsable2}
-                    paletteId={'palette2'}
-                    paletteValue={'palette2'}
-                    handlePalettes={handlePalettes}
-                    palettesChecked={palettes === 'palette2'}
-                    paletteImg={palette2}
-                    paletteAlt='colour palette 2'
+                  <div className={`design-form ${collapsable1}`}>
+                    <h3 className='design-form__description'>colores</h3>
+                    <form
+                      action='#'
+                      method='get'
+                      className='design-form__palette'
+                    >
+                      {/* COMPONENTE DE LAS IMAGENES/FORM */}
+                      <FormPalette
+                        collapsable={collapsable1}
+                        paletteId={'palette1'}
+                        paletteValue={'palette1'}
+                        handlePalettes={handlePalettes}
+                        palettesChecked={palettes === 'palette1'}
+                        paletteImg={palette1}
+                        paletteAlt='colour palette 1'
+                      />
+                      <FormPalette
+                        collapsable={collapsable2}
+                        paletteId={'palette2'}
+                        paletteValue={'palette2'}
+                        handlePalettes={handlePalettes}
+                        palettesChecked={palettes === 'palette2'}
+                        paletteImg={palette2}
+                        paletteAlt='colour palette 2'
+                      />
+                      <FormPalette
+                        collapsable={collapsable3}
+                        paletteId={'palette3'}
+                        paletteValue={'palette3'}
+                        handlePalettes={handlePalettes}
+                        palettesChecked={palettes === 'palette3'}
+                        paletteImg={palette3}
+                        paletteAlt='colour palette 3'
+                      />
+                    </form>
+                  </div>
+                </section>
+                <section className='fill wrapper test'>
+                  {/* Collapsable */}
+                  <Collapsable
+                    handleCollapsable={handleCollapsable2}
+                    text={'Rellena'}
+                    arrow={arrow2}
                   />
-                  <FormPalette
-                    collapsable={collapsable3}
-                    paletteId={'palette3'}
-                    paletteValue={'palette3'}
-                    handlePalettes={handlePalettes}
-                    palettesChecked={palettes === 'palette3'}
-                    paletteImg={palette3}
-                    paletteAlt='colour palette 3'
+                  <div className='fill wrapper container2'>
+                    <form
+                      className={`fill__form js-collapsable2 ${collapsable2}`}
+                      action=''
+                      method='post'
+                    >
+                      {/* Label e Input */}
+                      <FormInput
+                        htmlFor={'name'}
+                        text={'Nombre Completo'}
+                        placeholder={'Ej: Unicorn Unicorn'}
+                        id={'name'}
+                        type={'text'}
+                        name={'name'}
+                        value={data.name}
+                        handleInput={handleInput}
+                      />
+                      <FormInput
+                        htmlFor={'job'}
+                        text={'Puesto'}
+                        placeholder={'Ej: Front-end Unicorn'}
+                        id={'job'}
+                        type={'text'}
+                        name={'job'}
+                        value={data.job}
+                        handleInput={handleInput}
+                      />
+                      <ImageReader handleImage={handleImage} />
+                      <FormInput
+                        htmlFor={'email'}
+                        text={'Email'}
+                        placeholder={'Ej: sally-hill@gmail.com'}
+                        id={'email'}
+                        type={'email'}
+                        name={'email'}
+                        value={data.email}
+                        handleInput={handleInput}
+                      />
+                      <FormInput
+                        htmlFor={'phone'}
+                        text={'Teléfono'}
+                        placeholder={'Ej: 555-55-55-55'}
+                        id={'phone'}
+                        type={'tel'}
+                        name={'phone'}
+                        value={data.phone}
+                        handleInput={handleInput}
+                      />
+                      <FormInput
+                        htmlFor={'linkedin'}
+                        text={'Linkedin'}
+                        placeholder={'Ej: sally-hill-205391217/'}
+                        id={'linkedin'}
+                        type={'text'}
+                        name={'linkedin'}
+                        value={data.linkedin}
+                        handleInput={handleInput}
+                      />
+                      <FormInput
+                        htmlFor={'github'}
+                        text={'Github'}
+                        placeholder={'Ej: sally-hill'}
+                        id={'github'}
+                        type={'text'}
+                        name={'github'}
+                        value={data.github}
+                        handleInput={handleInput}
+                      />
+                    </form>
+                  </div>
+                </section>
+                <section className='share wrapper'>
+                  {/* Colapsable */}
+                  <Collapsable
+                    handleCollapsable={handleCollapsable3}
+                    text={'Comparte'}
+                    arrow={arrow3}
                   />
-                </form>
-              </div>
-            </section>
-            <section className='fill wrapper test'>
-              {/* Collapsable */}
-              <Collapsable
-                handleCollapsable={handleCollapsable2}
-                text={'Rellena'}
-                arrow={arrow2}
-              />
-              <div className='fill wrapper container2'>
-                <form
-                  className={`fill__form js-collapsable2 ${collapsable2}`}
-                  action=''
-                  method='post'
-                >
-                  {/* Label e Input */}
-                  <FormInput
-                    htmlFor={'name'}
-                    text={'Nombre Completo'}
-                    placeholder={'Ej: Unicorn Unicorn'}
-                    id={'name'}
-                    type={'text'}
-                    name={'name'}
-                    value={data.name}
-                    handleInput={handleInput}
+                  {/* componente crear tarjeta */}
+                  <CreateCard
+                    collapsable3={collapsable3}
+                    clickHandleShareLink={handleShareLink}
+                    dataUrl={dataUrl}
+                    twitterButton={twitterButton}
                   />
-                  <FormInput
-                    htmlFor={'job'}
-                    text={'Puesto'}
-                    placeholder={'Ej: Front-end Unicorn'}
-                    id={'job'}
-                    type={'text'}
-                    name={'job'}
-                    value={data.job}
-                    handleInput={handleInput}
-                  />
-                  <ImageReader handleImage={handleImage} />
-                  <FormInput
-                    htmlFor={'email'}
-                    text={'Email'}
-                    placeholder={'Ej: sally-hill@gmail.com'}
-                    id={'email'}
-                    type={'email'}
-                    name={'email'}
-                    value={data.email}
-                    handleInput={handleInput}
-                  />
-                  <FormInput
-                    htmlFor={'phone'}
-                    text={'Teléfono'}
-                    placeholder={'Ej: 555-55-55-55'}
-                    id={'phone'}
-                    type={'tel'}
-                    name={'phone'}
-                    value={data.phone}
-                    handleInput={handleInput}
-                  />
-                  <FormInput
-                    htmlFor={'linkedin'}
-                    text={'Linkedin'}
-                    placeholder={'Ej: sally-hill-205391217/'}
-                    id={'linkedin'}
-                    type={'text'}
-                    name={'linkedin'}
-                    value={data.linkedin}
-                    handleInput={handleInput}
-                  />
-                  <FormInput
-                    htmlFor={'github'}
-                    text={'Github'}
-                    placeholder={'Ej: sally-hill'}
-                    id={'github'}
-                    type={'text'}
-                    name={'github'}
-                    value={data.github}
-                    handleInput={handleInput}
-                  />
-                </form>
-              </div>
-            </section>
-            <section className='share wrapper'>
-              {/* Colapsable */}
-              <Collapsable
-                handleCollapsable={handleCollapsable3}
-                text={'Comparte'}
-                arrow={arrow3}
-              />
-              {/* componente crear tarjeta */}
-              <CreateCard collapsable3={collapsable3} />
-              {/* termina crear tarjeta  */}
-            </section>
-          </section>
-        </div>
-      </main>
-      <Footer />
-      </Route>
+                  {/* termina crear tarjeta  */}
+                </section>
+              </section>
+            </div>
+          </main>
+          <Footer />
+        </Route>
       </Switch>
     </>
   );
