@@ -268,7 +268,10 @@ function App() {
                         value={data.job}
                         handleInput={handleInput}
                       />
-                      <ImageReader handleImage={handleImage} />
+                      <ImageReader
+                        handleImage={handleImage}
+                        dataImage={image}
+                      />
                       <FormInput
                         htmlFor={'email'}
                         text={'Email'}

@@ -78,7 +78,10 @@ const ImageReader = (props) => {
           className='hidden'
           onChange={handleFile}
         />
-        <div className='fill__addPic--pic profile__preview'></div>
+        <div
+          className='fill__addPic--pic profile__preview'
+          style={{ backgroundImage: `url(${props.dataImage})` }}
+        ></div>
       </div>
     </div>
   );
