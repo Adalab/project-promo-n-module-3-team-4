@@ -31,7 +31,15 @@ const CreateCard = (props) => {
       {success !== "" ? (
         <div className="created">
           <h3 className="created__title">La tarjeta ha sido creada:</h3>
-          {/* <a rel="noreferrer" href="" target="_blank" className="created__url js-url"></a> */}
+          <a
+            title="Link"
+            rel="noreferrer"
+            href={cardURL}
+            target="_blank"
+            className="created__url"
+          >
+            {cardURL}
+          </a>
           <button className="created__btn twitter--button">
             <a
               rel="noreferrer"
