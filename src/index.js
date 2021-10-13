@@ -1,14 +1,14 @@
 // Importamos los dos módulos de NPM necesarios para trabajar
-const express = require('express');
-const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');
+const express = require("express");
+const cors = require("cors");
+const { v4: uuidv4 } = require("uuid");
 
 // Creamos el servidor
 const server = express();
 
 // Configuramos el servidor
 server.use(cors());
-server.use(express.json({ limit: '10mb' }));
+server.use(express.json({ limit: "10mb" }));
 
 // Arrancamos el servidor en el puerto 3000
 const serverPort = 3001;
@@ -17,13 +17,14 @@ server.listen(serverPort, () => {
 });
 
 // Escribimos los endpoints que queramos
-server.get('/card/:id', (req, res) => {
-  console.log('Se mostraría la tarjeta');
-  res.send('Se mostraría la tarjeta.');
+server.get("/card/:id", (req, res) => {
+  console.log("Se mostraría la tarjeta");
+  res.send("Se mostraría la tarjeta.");
 });
 
-server.post('/card', (req, res) => {
-  console.log(req.body);
+server.post("/card", (req, res) => {
+  console.log("body:", req.body);
+
   if (true) {
     const identificadorUnico = uuidv4();
     const response = {
@@ -34,8 +35,22 @@ server.post('/card', (req, res) => {
   } else {
     const response = {
       success: false,
-      error: 'Todavía no he implementado esta movida.',
+      error: "Todavía no he implementado esta movida.",
     };
     res.json(response);
   }
+});
+
+const staticServerPathWeb = "./public"; // En esta carpeta ponemos los ficheros estáticos
+server.use(express.static(staticServerPathWeb));
+
+// Endpoint para gestionar los errores 404
+server.get("*", (req, res) => {
+  // Relativo a este directorio
+  const notFoundFileRelativePath = "../public/404-not-found.html";
+  const notFoundFileAbsolutePath = path.join(
+    __dirname,
+    notFoundFileRelativePath
+  );
+  res.status(404).sendFile(notFoundFileAbsolutePath);
 });
