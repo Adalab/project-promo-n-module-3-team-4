@@ -64,7 +64,7 @@ function App() {
   //FORMULARIO
 
   //Palette radios
-  const [palettes, setPalettes] = useState('palette1');
+  const [palettes, setPalettes] = useState('');
 
   const handlePalettes = (ev) => {
     setPalettes(ev.target.value);
@@ -148,14 +148,14 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           <Landing />
         </Route>
 
-        <Route exact path='/card'>
+        <Route exact path="/card">
           <Header />
           <main>
-            <div className='mediaqueries'>
+            <div className="mediaqueries">
               <Preview
                 palettePreview={palettes}
                 renderName={renderData}
@@ -166,8 +166,8 @@ function App() {
                 linkedin={data.linkedin}
                 github={data.github}
               />
-              <section className='mediaqueries-form'>
-                <section className='design wrapper container'>
+              <section className="mediaqueries-form">
+                <section className="design wrapper container">
                   {/* Collapsable */}
                   <Collapsable
                     handleCollapsable={handleCollapsable1}
@@ -175,11 +175,11 @@ function App() {
                     arrow={arrow1}
                   />
                   <div className={`design-form ${collapsable1}`}>
-                    <h3 className='design-form__description'>colores</h3>
+                    <h3 className="design-form__description">colores</h3>
                     <form
-                      action='#'
-                      method='get'
-                      className='design-form__palette'
+                      action="#"
+                      method="get"
+                      className="design-form__palette"
                     >
                       {/* COMPONENTE DE LAS IMAGENES/FORM */}
                       <FormPalette
@@ -189,7 +189,7 @@ function App() {
                         handlePalettes={handlePalettes}
                         palettesChecked={palettes === 'palette1'}
                         paletteImg={palette1}
-                        paletteAlt='colour palette 1'
+                        paletteAlt="colour palette 1"
                       />
                       <FormPalette
                         collapsable={collapsable2}
@@ -198,7 +198,7 @@ function App() {
                         handlePalettes={handlePalettes}
                         palettesChecked={palettes === 'palette2'}
                         paletteImg={palette2}
-                        paletteAlt='colour palette 2'
+                        paletteAlt="colour palette 2"
                       />
                       <FormPalette
                         collapsable={collapsable3}
@@ -207,23 +207,23 @@ function App() {
                         handlePalettes={handlePalettes}
                         palettesChecked={palettes === 'palette3'}
                         paletteImg={palette3}
-                        paletteAlt='colour palette 3'
+                        paletteAlt="colour palette 3"
                       />
                     </form>
                   </div>
                 </section>
-                <section className='fill wrapper test'>
+                <section className="fill wrapper test">
                   {/* Collapsable */}
                   <Collapsable
                     handleCollapsable={handleCollapsable2}
                     text={'Rellena'}
                     arrow={arrow2}
                   />
-                  <div className='fill wrapper container2'>
+                  <div className="fill wrapper container2">
                     <form
                       className={`fill__form js-collapsable2 ${collapsable2}`}
-                      action=''
-                      method='post'
+                      action=""
+                      method="post"
                     >
                       {/* Label e Input */}
                       <FormInput
@@ -293,7 +293,7 @@ function App() {
                     </form>
                   </div>
                 </section>
-                <section className='share wrapper'>
+                <section className="share wrapper">
                   {/* Colapsable */}
                   <Collapsable
                     handleCollapsable={handleCollapsable3}
