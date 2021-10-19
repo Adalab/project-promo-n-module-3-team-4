@@ -1,23 +1,20 @@
-body {
-	min-height: 100vh;
-}
-
-
 .mediaqueries {
-    background: linear-gradient(to bottom, $whiteFour, $whiteTwo 9%);
-		width: 100%;
-		min-height: 80vh;
-    margin-bottom: 30px;
-    @include tablet {
+  background: linear-gradient(to bottom, $whiteFour, $whiteTwo 9%);
+  width: 100%;
+  height: auto;
+
+  @include tablet {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    }
-    @include desktop {
-        grid-template-columns: 40% 60%;
-    }
+  }
+  @include desktop {
+    grid-template-columns: 40% 60%;
+  }
 }
 .mediaqueries-form {
-    @include tablet {   
-order: -1;
-    }
+  height: auto;
+  margin: 0 0 60px 0;
+  @include tablet {
+    order: -1;
+  }
 }

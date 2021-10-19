@@ -1,10 +1,12 @@
 .preview {
-  background-color: #bfcdd0;
+  background: linear-gradient(to bottom, #bfcdd0, #dde9ed);
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-	padding-top: 50px;
+  min-height: 80vh;
+
   &--button {
     display: flex;
     justify-content: space-evenly;
@@ -33,7 +35,6 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-
       margin-top: 23px;
     }
   }
@@ -65,8 +66,8 @@
   margin-bottom: 12px;
 
   &--border {
-		text-decoration: none;
-		color: #114e4e;
+    text-decoration: none;
+    color: #114e4e;
     height: 32px;
     margin-right: 10px;
     width: 32px;
@@ -75,7 +76,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-		
   }
 }
 .info {
@@ -96,51 +96,40 @@
 }
 
 .palette1 {
-
-	.preview--edge {
-		
-	background-color: #438792;
-	}
-	.js_namePreview {
-		color: #114e4e;
-	}
-	a {
-		border-color: #a2deaf;
-		color: #114e4e;
-
-	}
+  .preview--edge {
+    background-color: #438792;
+  }
+  .js_namePreview {
+    color: #114e4e;
+  }
+  a {
+    border-color: #a2deaf;
+    color: #114e4e;
+  }
 }
 
-
 .palette2 {
-
-	.preview--edge {
-		
-	background-color: #bd1010;
-	}
-	.js_namePreview {
-		color: #420101;
-	}
-	a {
-		border-color: #e95626;
-		color: #420101;
-
-	}
+  .preview--edge {
+    background-color: #bd1010;
+  }
+  .js_namePreview {
+    color: #420101;
+  }
+  a {
+    border-color: #e95626;
+    color: #420101;
+  }
 }
 
 .palette3 {
-
-	.preview--edge {
-		background-color: #eab052;
-	}
-	.js_namePreview {
-		color: #3e5b65;
-	}
-	a {
-		border-color: #a0c0cf;
-		color: #3e5b65;
-
-	}
+  .preview--edge {
+    background-color: #eab052;
+  }
+  .js_namePreview {
+    color: #3e5b65;
+  }
+  a {
+    border-color: #a0c0cf;
+    color: #3e5b65;
+  }
 }
-
-

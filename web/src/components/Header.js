@@ -3,7 +3,7 @@ import "../styles/core/reset.scss";
 import "../styles/core/mixins.scss";
 import "../styles/layout/header.scss";
 
-import logo from "../images/logo-awesome-profile-cards.svg";
+import logo from "../images/logo-awesome-profile-cards.png";
 
 const Header = () => {
   return (
