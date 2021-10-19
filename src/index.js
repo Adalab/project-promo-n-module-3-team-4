@@ -75,9 +75,10 @@ server.post('/card', (req, res) => {
     const identificadorUnico = uuidv4();
     // Aquí ponme un INSERT Soraya.
     const query = db.prepare(
-      'INSERT INTO cards (palette, name, job, email, phone, linkedin, github, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+      'INSERT INTO cards (uuid,palette, name, job, email, phone, linkedin, github, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)'
     );
     const result = query.run(
+      identificadorUnico,
       req.body.palette,
       req.body.name,
       req.body.job,
@@ -89,7 +90,7 @@ server.post('/card', (req, res) => {
     );
     const response = {
       success: true,
-      cardURL: `http://localhost:${serverPort}/card/${result.identificadorUnico}`,
+      cardURL: `http://localhost:${serverPort}/card/${identificadorUnico}`,
     };
     res.json(response);
   }
@@ -97,6 +98,9 @@ server.post('/card', (req, res) => {
 
 const staticServerPathWeb = './public'; // En esta carpeta ponemos los ficheros estáticos
 server.use(express.static(staticServerPathWeb));
+
+const staticServerCard = './templates'; // En esta carpeta ponemos los ficheros estáticos
+server.use(express.static(staticServerCard));
 
 // Endpoint para gestionar los errores 404
 server.get('*', (req, res) => {
