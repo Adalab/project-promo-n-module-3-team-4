@@ -1,29 +1,45 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Api from "../services/Api";
+import Api from '../services/Api';
 
 const CreateCard = (props) => {
   //fetch states
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const [cardURL, setCardURL] = useState("");
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [cardURL, setCardURL] = useState('');
 
   const handleFetch = (ev) => {
-    console.log("pasa por aquí");
+    console.log('pasa por aquí');
     ev.preventDefault();
     Api(props.data).then((responseData) => {
-      setCardURL(responseData.cardURL);
-
       if (responseData.success === false) {
         setError(responseData.error);
 
-        setSuccess("");
+        setSuccess('');
       } else if (responseData.success === true) {
         setSuccess(responseData.cardURL);
-        setError("");
+        setCardURL(responseData.cardURL);
+        setError('');
       }
     });
   };
+
+  // const handleFetch = (ev) => {
+  //   console.log('pasa por aquí');
+  //   ev.preventDefault();
+  //   Api(props.data).then((responseData) => {
+  //     setCardURL(responseData.cardURL);
+
+  //     if (responseData.success === false) {
+  //       setError(responseData.error);
+
+  //       setSuccess('');
+  //     } else if (responseData.success === true) {
+  //       setSuccess(responseData.cardURL);
+  //       setError('');
+  //     }
+  //   });
+  // };
 
   return (
     <section className={`create ${props.collapsable3}`}>
@@ -31,7 +47,7 @@ const CreateCard = (props) => {
         <i className="far fa-address-card create__address"></i>crear tarjeta
       </button>
 
-      {success !== "" ? (
+      {success !== '' ? (
         <div className="created">
           <h3 className="created__title">La tarjeta ha sido creada:</h3>
           <a
@@ -56,16 +72,16 @@ const CreateCard = (props) => {
           </button>
         </div>
       ) : (
-        ""
+        ''
       )}
 
-      {error !== "" ? (
+      {error !== '' ? (
         <div className="created">
           <h3 className="created__title">La tarjeta NO ha sido creada:</h3>
           <p>{error}</p>
         </div>
       ) : (
-        ""
+        ''
       )}
     </section>
   );
