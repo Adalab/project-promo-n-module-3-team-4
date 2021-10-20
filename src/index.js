@@ -73,9 +73,8 @@ server.post("/card", (req, res) => {
     res.json(response);
   } else {
     const identificadorUnico = uuidv4();
-    // Aquí ponme un INSERT Soraya.
     const query = db.prepare(
-      "INSERT INTO cards (uuid,palette, name, job, email, phone, linkedin, github, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)"
+      "INSERT INTO cards (uuid, palette, name, job, email, phone, linkedin, github, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
     );
     const result = query.run(
       identificadorUnico,
@@ -90,7 +89,7 @@ server.post("/card", (req, res) => {
     );
     const response = {
       success: true,
-      cardURL: `https://servidor-as-profile-cards.herokuapp.com/card/${identificadorUnico}`,
+      cardURL: `https://servidor-as-profile-cards.herokuapp.com/index.html#/card/${identificadorUnico}`,
     };
     res.json(response);
   }
