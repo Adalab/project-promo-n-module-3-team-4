@@ -14,7 +14,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "build": "cd web && npm install && npm run build && cd .. && mv ./web/build ./public"
   },
   "author": "",
   "license": "ISC"
