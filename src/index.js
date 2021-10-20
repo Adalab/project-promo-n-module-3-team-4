@@ -89,7 +89,7 @@ server.post('/card', (req, res) => {
     );
     const response = {
       success: true,
-      cardURL: `https://servidor-as-profile-cards.herokuapp.com/index.html#/card/${identificadorUnico}`,
+      cardURL: `https://servidor-as-profile-cards.herokuapp.com/card/${identificadorUnico}`,
     };
     res.json(response);
   }
