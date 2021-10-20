@@ -11,7 +11,9 @@ const CreateCard = (props) => {
   const handleFetch = (ev) => {
     ev.preventDefault();
     Api(props.data).then((responseData) => {
+      console.log("pasa por aquí");
       setCardURL(responseData.cardURL);
+
       if (responseData.success === false) {
         setError(responseData.error);
 
