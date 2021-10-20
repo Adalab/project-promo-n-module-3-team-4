@@ -90,7 +90,7 @@ server.post("/card", (req, res) => {
     );
     const response = {
       success: true,
-      cardURL: `http://localhost:${serverPort}/card/${identificadorUnico}`,
+      cardURL: `https://servidor-as-profile-cards.herokuapp.com/card/${identificadorUnico}`,
     };
     res.json(response);
   }
